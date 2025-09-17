@@ -140,7 +140,8 @@ public class SempClient {
     }
 
     public String uriAddOpaquePassword(String uri) {
-        if (Optional.ofNullable(opaquePassword).map(String::isEmpty).orElse(true)) {
+        if (Optional.ofNullable(opaquePassword).map(String::isEmpty).orElse(true)
+        || uri.contains(SempSpec.OPAQUE_PASSWORD)) {
             return uri;
         }
         var q = (uri.contains("?") ? "&" : "?") + SempSpec.OPAQUE_PASSWORD + "=" + opaquePassword;
