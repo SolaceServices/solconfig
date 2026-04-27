@@ -19,8 +19,8 @@ import static org.junit.jupiter.params.provider.Arguments.arguments;
 
 public class SempSpecTest {
     @BeforeAll
-    static void setup() throws IOException {
-        var jsonString = Files.readString(Path.of(JsonSpecTest.class.getResource("/semp-v2-config-2.19.json").getPath()));
+    static void setup() throws Exception {
+        var jsonString = Files.readString(Path.of(JsonSpecTest.class.getResource("/semp-v2-config-2.19.json").toURI()));
         SempSpec.setupByString(jsonString);
     }
 

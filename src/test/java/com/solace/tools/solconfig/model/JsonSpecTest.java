@@ -28,8 +28,8 @@ public class JsonSpecTest {
     private static Object jsonDocument;
 
     @BeforeAll
-    static void setup() throws IOException {
-        var jsonString = Files.readString(Path.of(JsonSpecTest.class.getResource("/semp-v2-config-2.19.json").getPath()));
+    static void setup() throws Exception {
+        var jsonString = Files.readString(Path.of(JsonSpecTest.class.getResource("/semp-v2-config-2.19.json").toURI()));
         jsonDocument = Configuration.defaultConfiguration().jsonProvider().parse(jsonString);
         jsonSpec = JsonSpec.ofString(jsonString);
     }
